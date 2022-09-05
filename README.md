@@ -38,3 +38,42 @@ I servizi esterni sfruttati sono Leaflet e OpenStreetMap.
 
 
 ## Documentazione dell’API implementata
+ - **progetto-impianti-sportivi.glitch.me/** \
+Endpoint GET che restituisce la pagina principale (index.html)
+
+**INPUT**: niente
+**OUTPUT**: views/index.html
+
+ - **progetto-impianti-sportivi.glitch.me/impianticsv** \
+Endpoint GET che restituisce il file CSV contenente tutti i dati
+
+**INPUT**: niente \
+**OUTPUT**: views/impiantisportivi.csv
+
+- **progetto-impianti-sportivi.glitch.me/overview** \
+Endpoint GET che restituisce la pagina web che mostra la mappa di tutti i punti di interesse con il rispettivo elenco
+
+**INPUT**: niente \
+**OUTPUT**: views/overview.html
+
+- **progetto-impianti-sportivi.glitch.me/ricerca** \
+Endpoint GET che restituisce la pagina web per la ricerca di uno specifico punto di interesse
+**INPUT**: niente \
+**OUTPUT**: views/ricerca.html
+
+- **progetto-impianti-sportivi.glitch.me/inserisci** \
+Endpoint GET che restituisce la pagina web per l'inserimento di un nuovo punto di interesse
+**INPUT**: niente \
+**OUTPUT**: views/inserisci.html
+
+- **progetto-impianti-sportivi.glitch.me/rimuovi** \
+Endpoint GET che restituisce la pagina web per la rimozione di un punto di interesse
+**INPUT**: niente \
+**OUTPUT**: views/rimuovi.html
+
+- **progetto-impianti-sportivi.glitch.me/dati/:par** \
+Endpoint GET che restituisce le informazioni appartenenti ad un punto di interesse, ricercato tramite tipo, nome, codice o indice (posizione nell'elenco) nella pagina ricerca.html
+**INPUT**: il parametro :par può assumere diversi tipi e configurazioni, in base a quale criterio si vuole ricercare il punto di interesse
+**OUTPUT**: 
+
+
