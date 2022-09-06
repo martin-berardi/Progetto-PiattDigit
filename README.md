@@ -40,19 +40,16 @@ I servizi esterni sfruttati sono Leaflet e OpenStreetMap.
 ## Documentazione dell’API implementata
  - **progetto-impianti-sportivi.glitch.me/** \
 Endpoint GET che restituisce la pagina principale (index.html)
-
 **INPUT**: niente
 **OUTPUT**: views/index.html
 
  - **progetto-impianti-sportivi.glitch.me/impianticsv** \
 Endpoint GET che restituisce il file CSV contenente tutti i dati
-
 **INPUT**: niente \
 **OUTPUT**: views/impiantisportivi.csv
 
 - **progetto-impianti-sportivi.glitch.me/overview** \
 Endpoint GET che restituisce la pagina web che mostra la mappa di tutti i punti di interesse con il rispettivo elenco
-
 **INPUT**: niente \
 **OUTPUT**: views/overview.html
 
@@ -72,8 +69,37 @@ Endpoint GET che restituisce la pagina web per la rimozione di un punto di inter
 **OUTPUT**: views/rimuovi.html
 
 - **progetto-impianti-sportivi.glitch.me/dati/:par** \
-Endpoint GET che restituisce le informazioni appartenenti ad un punto di interesse, ricercato tramite tipo, nome, codice o indice (posizione nell'elenco) nella pagina ricerca.html
-**INPUT**: il parametro :par può assumere diversi tipi e configurazioni, in base a quale criterio si vuole ricercare il punto di interesse
+Endpoint GET che restituisce le informazioni appartenenti ad un punto di interesse, ricercato tramite tipo, nome, codice o indice (posizione nell'elenco) nella pagina ricerca.html \
+**INPUT**: il parametro :par può assumere diversi tipi e configurazioni, in base a quale criterio si vuole ricercare il punto di interesse \
 **OUTPUT**: 
+   - se il parametro :par è un numero, ovvero l'indice, viene restituito il punto di interesse in quella posizione nell'elenco. \
+   - se il parametro :par è una stringa:
+     - se è lungo 3 caratteri (cioè il codice), viene restituito il punto di interesse con quel codice
+     - altrimenti si sta cercando un punto di interesse per nome o per tipo \
+
+&emsp;&emsp;&emsp;Se la ricerca non va a buon fine, viene restituito un messaggio di errore opportuno con HTTP responde 404 (400 nel caso di un indice non ammesso). \
+&emsp;&emsp;&emsp;L'API è dotata di opportuni controlli per restituire all'utente il risultato che si aspetta in base al parametro fornito.
+
+- **progetto-impianti-sportivi.glitch.me/inserimento** \
+Endpoint GET che permette l'inserimento di un nuovo punto di interesse tramite form HTML. \
+**INPUT**: la form HTML dispone di diversi campi da compilare: tipo, nome, codice, indirizzo, longitudine e latitudine \
+*N.B.*: dato che alcuni punti di interesse presenti nel file CSV mancano del nome, non è obbligatorio compilare il campo "nome" della form. \
+**OUTPUT**: views/success.html
+
+- **progetto-impianti-sportivi.glitch.me/inserimento** \
+Endpoint POST che permette l'inserimento di un nuovo punto di interesse da client esterni. \
+**INPUT**: è necessario specificare i nomi degli attributi esattamente come li richiede l'endpoint GET. \
+**OUTPUT**: HTTP response 200 se l'inserimento va a buon fine, HTTP response 400 se mancano dei parametri o se l'inserimento non va a buon fine in generale.
+
+- **progetto-impianti-sportivi.glitch.me/rimuovi/:par** \
+Endpoint DELETE che permette la rimozione di un punto di interesse. \
+**INPUT**: l'indice del punto di interesse da rimuovere. \
+**OUTPUT**: HTTP response 200 se la rimozione va a buon fine, altrimenti HTTP response 400.
+
+## Descrizione delle modalità della messa online del servizio
+La piattaforma è fruibile attraverso il seguente link: (https://progetto-impianti-sportivi.glitch.me/). \
+Il link Glitch rimanda alla pagina principale *index.html*.
+
+
 
 
