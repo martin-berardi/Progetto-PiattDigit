@@ -99,6 +99,30 @@ Endpoint DELETE che permette la rimozione di un punto di interesse. \
 La piattaforma è fruibile attraverso il seguente link: (https://progetto-impianti-sportivi.glitch.me/). \
 Il link Glitch rimanda alla pagina principale *index.html*.
 
+## Esempio descrittivo di utilizzo del servizio Web + Screenshot
+Questa è la homepage:
+![1](https://user-images.githubusercontent.com/76852603/188829716-1686c632-1644-4640-97f9-74f60eecde52.PNG)
 
+La mappa viene presentata nel seguente modo:
+![2](https://user-images.githubusercontent.com/76852603/188832036-31f73946-5cdd-479d-8ed6-5b022f318f25.PNG)
+
+Questa è la pagina di ricerca tramite form:
+![3](https://user-images.githubusercontent.com/76852603/188832337-ee140cf7-9a34-4a33-8841-8ce6ecd6f341.PNG)
+Scegliendo un tipo oppure scrivendo un nome, un codice o un indice, e cliccando sul corrispondente bottone di ricerca, si ottiene il risultato che ci si aspetta.
+
+Nel caso di una ricerca a vuoto:
+![4](https://user-images.githubusercontent.com/76852603/188832789-aebf2ece-e946-476b-a2ea-c28c23b9a768.PNG)
+Se non si sceglie alcun tipo, o non si scrive alcun nome, codice o indice, viene restituito un messaggio di errore.
+Se la ricerca non produce risultati, viene restituito un messaggio di errore.
+
+Questa è la pagina di inserimento di un nuovo punto di interesse:
+![5](https://user-images.githubusercontent.com/76852603/188834047-4a045a82-541a-4ea9-b754-45ab9a2eddfb.PNG)
+Come si può notare, il nome del punto di interesse non è obbligatorio. Al contrario, lo sono tutti gli altri campi.
+
+Questa è la pagina di rimozione di un punto di interesse:
+![6](https://user-images.githubusercontent.com/76852603/188834871-d67dc395-ed12-4edb-9813-8c791921d8b1.PNG)
+Come si può notare, se l'indice esiste il punto viene rimosso.
+![7](https://user-images.githubusercontent.com/76852603/188835114-1aeac2be-21f5-4425-b0cc-d42323c17a76.PNG)
+Se l'indice non esiste, viene restituito un messaggio di errore.
 
 
