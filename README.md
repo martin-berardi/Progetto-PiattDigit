@@ -15,7 +15,7 @@ La piattaforma dispone di molteplici funzionalità:
 
 
 ## Descrizione di architettura e scelte implementative 
-La piattaforma è poggiata su NodeJS. I dati utilizzati sono forniti tramite un file CSV. \
+La piattaforma è basata su NodeJS. I dati utilizzati sono forniti tramite un file CSV. \
 I dati presenti nel file CSV non sono stati in alcun modo ritoccati o modificati.
 Notare che alcuni punti di interesse mancano di alcuni attributi, e.g. il nome, per questo non viene reso obbligatorio l'inserimento del nome di un nuovo punto di interesse.
 
