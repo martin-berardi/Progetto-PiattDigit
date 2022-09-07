@@ -5,7 +5,7 @@
 # Servizio Localizzazione Impianti Sportivi
 ## Descrizione del servizio implementato e del suo scopo
 
-Oggigiorno la tecnologia ha raggiunto passi da gigante, ed è in continuo sviluppo. La sua grande evoluzione ha portato con sé purtroppo, oltre agli innumerevoli pregi, parecchi problemi di diverso tipo. Uno di questi è la sedentarietà, rinunciare al sano movimento e allo sport per giocare con i videogiochi.\
+Oggigiorno la tecnologia ha raggiunto passi da gigante, ed è in continuo sviluppo. La sua grande evoluzione ha portato con sé purtroppo, oltre agli innumerevoli pregi, parecchi problemi di diverso tipo. Uno di questi è la sedentarietà.\
 Questa piattaforma è stata pensata per poter reperire la posizione di alcuni impianti sportivi di diverso genere (campi da calcio, da basket, da golf, etc.) tramite i dati forniti dal sito (https://dati.gov.it/).
 
 La piattaforma dispone di molteplici funzionalità:
@@ -29,7 +29,7 @@ Il back-end è composto da JS e alcuni moduli:
 È presente una piccola funzione di refresh dei campi del form, scritta in JQuery. \
 Gli endpoint possono essere contattati sia tramite form che tramite URL.
 
-In un'epoca dove il mobile sta prendendo sempre più piede, è stato scelto di ottimizzare la piattaforma per renderla esteticamente più piacevole anche su schermi di dimensione inferiore rispetto a quello di un PC.
+In un'epoca dove il mobile sta prendendo sempre più piede, è stato scelto di ottimizzare la piattaforma per renderla esteticamente più piacevole anche su schermi di dimensione inferiore rispetto a quella di un PC.
 
 
 ## Riferimento a eventuali dati o servizi esterni sfruttati
@@ -39,32 +39,32 @@ I servizi esterni sfruttati sono Leaflet e OpenStreetMap.
 
 ## Documentazione dell’API implementata
  - **progetto-impianti-sportivi.glitch.me/** \
-Endpoint GET che restituisce la pagina principale (index.html)
-**INPUT**: niente
+Endpoint GET che restituisce la pagina principale (index.html) \
+**INPUT**: niente \
 **OUTPUT**: views/index.html
 
  - **progetto-impianti-sportivi.glitch.me/impianticsv** \
-Endpoint GET che restituisce il file CSV contenente tutti i dati
+Endpoint GET che restituisce il file CSV contenente tutti i dati \
 **INPUT**: niente \
 **OUTPUT**: views/impiantisportivi.csv
 
 - **progetto-impianti-sportivi.glitch.me/overview** \
-Endpoint GET che restituisce la pagina web che mostra la mappa di tutti i punti di interesse con il rispettivo elenco
+Endpoint GET che restituisce la pagina web che mostra la mappa di tutti i punti di interesse con il rispettivo elenco \
 **INPUT**: niente \
 **OUTPUT**: views/overview.html
 
 - **progetto-impianti-sportivi.glitch.me/ricerca** \
-Endpoint GET che restituisce la pagina web per la ricerca di uno specifico punto di interesse
+Endpoint GET che restituisce la pagina web per la ricerca di uno specifico punto di interesse \
 **INPUT**: niente \
 **OUTPUT**: views/ricerca.html
 
 - **progetto-impianti-sportivi.glitch.me/inserisci** \
-Endpoint GET che restituisce la pagina web per l'inserimento di un nuovo punto di interesse
+Endpoint GET che restituisce la pagina web per l'inserimento di un nuovo punto di interesse tramite form \
 **INPUT**: niente \
 **OUTPUT**: views/inserisci.html
 
 - **progetto-impianti-sportivi.glitch.me/rimuovi** \
-Endpoint GET che restituisce la pagina web per la rimozione di un punto di interesse
+Endpoint GET che restituisce la pagina web per la rimozione di un punto di interesse \
 **INPUT**: niente \
 **OUTPUT**: views/rimuovi.html
 
@@ -72,17 +72,16 @@ Endpoint GET che restituisce la pagina web per la rimozione di un punto di inter
 Endpoint GET che restituisce le informazioni appartenenti ad un punto di interesse, ricercato tramite tipo, nome, codice o indice (posizione nell'elenco) nella pagina ricerca.html \
 **INPUT**: il parametro :par può assumere diversi tipi e configurazioni, in base a quale criterio si vuole ricercare il punto di interesse \
 **OUTPUT**: 
-   - se il parametro :par è un numero, ovvero l'indice, viene restituito il punto di interesse in quella posizione nell'elenco. \
-   - se il parametro :par è una stringa:
-     - se è lungo 3 caratteri (cioè il codice), viene restituito il punto di interesse con quel codice
-     - altrimenti si sta cercando un punto di interesse per nome o per tipo \
+   - Se il parametro :par è un numero, ovvero l'indice, viene restituito il punto di interesse in quella posizione nell'elenco.
+   - Se il parametro :par è una stringa, si sta cercando un punto di interesse per tipo, per nome o per codice
 
-&emsp;&emsp;&emsp;Se la ricerca non va a buon fine, viene restituito un messaggio di errore opportuno con HTTP responde 404 (400 nel caso di un indice non ammesso). \
-&emsp;&emsp;&emsp;L'API è dotata di opportuni controlli per restituire all'utente il risultato che si aspetta in base al parametro fornito.
+&emsp;&emsp;Se la ricerca non va a buon fine, viene restituito un messaggio di errore opportuno con HTTP response 404 (400 nel caso di un indice &emsp;&emsp;non ammesso). \
+&emsp;&emsp;L'API è dotata di opportuni controlli per restituire all'utente il risultato che si aspetta in base al parametro fornito.
 
 - **progetto-impianti-sportivi.glitch.me/inserimento** \
 Endpoint GET che permette l'inserimento di un nuovo punto di interesse tramite form HTML. \
-**INPUT**: la form HTML dispone di diversi campi da compilare: tipo, nome, codice, indirizzo, longitudine e latitudine \
+**INPUT**: la form HTML dispone di diversi campi da compilare: tipo, nome, codice, indirizzo, longitudine e latitudine. \
+&emsp;&emsp;&emsp;I nomi dei campi sono i seguenti: *tipo, nome, codice, indirizzo, long, lat*. \
 *N.B.*: dato che alcuni punti di interesse presenti nel file CSV mancano del nome, non è obbligatorio compilare il campo "nome" della form. \
 **OUTPUT**: views/success.html
 
