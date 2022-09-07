@@ -17,7 +17,7 @@ La piattaforma dispone di molteplici funzionalità:
 ## Descrizione di architettura e scelte implementative 
 La piattaforma è poggiata su NodeJS. I dati utilizzati sono forniti tramite un file CSV. \
 I dati presenti nel file CSV non sono stati in alcun modo ritoccati o modificati.
-Notare che alcuni punti di interesse mancano di alcuni attributi, e.g. il nome.
+Notare che alcuni punti di interesse mancano di alcuni attributi, e.g. il nome, per questo non viene reso obbligatorio l'inserimento del nome di un nuovo punto di interesse.
 
 Il front-end è stato sviluppato grazie all'uso di HTML5, CSS3 e JS. Inoltre, per la creazione della mappa, sono stati utilizzati Leaflet (una libreria JavaScript open source per mappe interattive ottimizzate per dispositivi mobili, https://leafletjs.com/), e OpenStreetMap. \
 Il back-end è composto da JS e alcuni moduli:
@@ -90,10 +90,14 @@ Endpoint POST che permette l'inserimento di un nuovo punto di interesse da clien
 **INPUT**: è necessario specificare i nomi degli attributi esattamente come li richiede l'endpoint GET. \
 **OUTPUT**: HTTP response 200 se l'inserimento va a buon fine, HTTP response 400 se mancano dei parametri o se l'inserimento non va a buon fine in generale.
 
+**N.B.**: Per le API di inserimento (GET e POST), è stato necessario recuperare due volte i parametri di longitudine e latitudine, per restituirli entrambi sia all'inizio che alla fine della stringa di output. Questo per mantenere la sintassi del file CSV originale.
+
 - **progetto-impianti-sportivi.glitch.me/rimuovi/:par** \
 Endpoint DELETE che permette la rimozione di un punto di interesse. \
 **INPUT**: l'indice del punto di interesse da rimuovere. \
 **OUTPUT**: HTTP response 200 se la rimozione va a buon fine, altrimenti HTTP response 400.
+
+Per alcuni endpoint è stato scelto di utilizzare una funzione di conversione da CSV ad array, presa dal seguente link: (https://www.bennadel.com/blog/1504-ask-ben-parsing-csv-strings-with-javascript-exec-regular-expression-command.htm). Ciò è stato fatto per poter lavorare meglio con i dati.
 
 ## Descrizione delle modalità della messa online del servizio
 La piattaforma è fruibile attraverso il seguente link: (https://progetto-impianti-sportivi.glitch.me/). \
@@ -124,5 +128,13 @@ Questa è la pagina di rimozione di un punto di interesse:
 Come si può notare, se l'indice esiste il punto viene rimosso.
 ![7](https://user-images.githubusercontent.com/76852603/188835114-1aeac2be-21f5-4425-b0cc-d42323c17a76.PNG)
 Se l'indice non esiste, viene restituito un messaggio di errore.
+
+### Postman
+Inserendo correttamente tutti i valori, si ottiene il seguente risultato:
+![postman1](https://user-images.githubusercontent.com/76852603/188836723-131eb437-9ebf-40b1-a9d4-ebcc50c343a9.PNG)
+
+Se mancano alcuni valori, si ottiene il seguente risultato:
+![postman2](https://user-images.githubusercontent.com/76852603/188837257-31187b5a-ba44-4424-94dd-769aa5fc32f1.PNG)
+![postman3](https://user-images.githubusercontent.com/76852603/188837260-60c6e779-2ed5-4ba6-80ae-63deb414231c.PNG)
 
 
